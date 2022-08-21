@@ -5,7 +5,12 @@ let seconds = 0;
 let minutes = 0;
 
 function displayTime() {
-  stopWatchView.innerHTML = `${minutes}:${seconds}:${hundredth}`;
+  let seconsString = seconds;
+  if (seconds < 10) {
+    seconsString = '0' + seconds;
+  }
+  //TODO  do the same to the minutes
+  stopWatchView.innerHTML = `${minutes}:${seconsString}:${hundredth}`;
 }
 
 function handleTimeChange() {
