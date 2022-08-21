@@ -14,21 +14,23 @@ let hundredth = 0;
 let seconds = 0;
 let minutes = 0;
 
-function displayTime() {
+function getTimeString() {
   let seconsString = seconds;
   if (seconds < 10) {
     secondsString = '0' + seconds;
   }
   //TODO  do the same to the minutes
-  stopWatchView.innerHTML = `${minutes}:${secondsString}:${hundredth}`;
+  const timeString = `${minutes}:${secondsString}:${hundredth}`;
+
+  return timeString;
 }
 
-// counter = 5;
-// counter = counter + 1;
-// counter += 1;
+function displayTime() {
+  stopWatchView.innerHTML = getTimeString();
+}
 
 function addLap() {
-  lapsView.innerHTML += `<li>${minutes}:${seconds}:${hundredth}</li>`;
+  lapsView.innerHTML += `<li>${getTimeString()}</li>`;
 }
 
 function resetStopWatch() {
