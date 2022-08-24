@@ -1,4 +1,4 @@
 import ObjFullname from './timers.js';
 console.log(ObjFullname);
 
-ObjFullname.fname();
+ObjFullname.fname('app.js');
