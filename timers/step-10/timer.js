@@ -4,6 +4,7 @@ export default function Timer(initialTime) {
   let timerElement;
   let timeView;
   let intervalId;
+  let isTimerRunning = false;
 
   function displayTime() {
     time--;
@@ -16,11 +17,15 @@ export default function Timer(initialTime) {
 
   function stopTimer() {
     clearInterval(intervalId);
+    isTimerRunning = false;
   }
 
   function startTimer() {
-    console.log('timer is started');
+    if (isTimerRunning) {
+      return;
+    }
     intervalId = setInterval(displayTime, 1000);
+    isTimerRunning = true;
   }
 
   function deleteTimer() {
