@@ -3,15 +3,24 @@ export default function Timer(initialTime) {
   let time = initialTime;
   let timerElement;
   let timeView;
+  let intervalId;
 
   function displayTime() {
     time--;
     timeView.innerText = time;
+
+    if (time == 0) {
+      stopTimer();
+    }
+  }
+
+  function stopTimer() {
+    clearInterval(intervalId);
   }
 
   function startTimer() {
     console.log('timer is started');
-    setInterval(displayTime, 1000);
+    intervalId = setInterval(displayTime, 1000);
   }
 
   function deleteTimer() {
